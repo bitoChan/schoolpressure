@@ -1,0 +1,11 @@
+Model Information:
+* title:	Lina Crying
+* source:	https://sketchfab.com/3d-models/lina-crying-3342a84ff0144a299794ad2a74eee461
+* author:	p125445 (https://sketchfab.com/p125445)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Lina Crying" (https://sketchfab.com/3d-models/lina-crying-3342a84ff0144a299794ad2a74eee461) by p125445 (https://sketchfab.com/p125445) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
