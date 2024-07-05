@@ -1,23 +1,14 @@
-document.addEventListener('DOMContentLoaded', function () {
-    let scene = document.querySelector('#scene');
-    let background = document.querySelector('#background');
-    let role = document.querySelector('#role');
-    let school = document.querySelector('#School');
-    let clickCount = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    var container = document.querySelector('.q1-container');
+    var clickCount = 0;
 
-    function handleClick() {
+    container.addEventListener('click', function() {
         clickCount++;
+        
         if (clickCount === 1) {
-            background.style.display = 'none';
-            role.style.display = 'block';
+            container.style.backgroundImage = 'url("image/role.png")';
         } else if (clickCount === 2) {
-            background.style.display = 'none';
-            role.style.display = 'none';
-            school.setAttribute('visible', 'true');
-            scene.style.display = 'none';
+            window.location.href = 'index.html';
         }
-    }
-
-    background.addEventListener('click', handleClick);
-    role.addEventListener('click', handleClick);
+    });
 });
