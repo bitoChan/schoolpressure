@@ -71,20 +71,34 @@ document.addEventListener('DOMContentLoaded', function() {
   function playAudio(fileName) {
     const audio = new Audio(fileName);
 
-    // Ensure audio is loaded before playing
+    // 确保音频加载完成后再播放
     audio.addEventListener('canplaythrough', function() {
-      audio.play().catch(error => {
-        console.error('Playback failed:', error);
-        alert('Failed to play audio. Please check permissions or try again.');
-      });
+        audio.play().catch(error => {
+            console.error('播放失败:', error);
+            alert('音频播放失败。请检查权限或重试。');
+        });
     });
 
-    // Handle errors during loading
+    // 处理加载过程中出现的错误
     audio.addEventListener('error', function(event) {
-      console.error('Error loading audio:', event);
-      alert('Error loading audio. Please check file path and format.');
+        console.error('音频加载错误:', event);
+        alert('音频加载错误。请检查文件路径和格式。');
     });
 
-    audio.load();
+    // Safari-specific workaround to handle autoplay restrictions
+    if (audio.readyState >= 2) {
+        audio.play().catch(error => {
+            console.error('播放失败:', error);
+            alert('音频播放失败。请检查权限或重试。');
+        });
+    } else {
+        audio.load();
+        audio.addEventListener('loadeddata', function() {
+            audio.play().catch(error => {
+                console.error('播放失败:', error);
+                alert('音频播放失败。请检查权限或重试。');
+            });
+        });
+    }
   }
 });
