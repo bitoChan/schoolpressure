@@ -1,19 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>3D Classroom</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<!--語音生成package嵌入-->
+    <!-- 修正 scriptsrc 的拼写错误 -->
     <script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
+<!--Aframe世界和3D插件嵌入-->    
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
+<!--本地package嵌入-->
     <script src="javascript/index.js"></script>
     <link rel="stylesheet" href="css/index.css">
-  </head>
-  <body>
-    <a-scene>
-      <a-entity id="classroom" gltf-model="https://raw.githubusercontent.com/bitoChan/schoolpressure/main/q1/3d-model/classroom/Classroom.gltf" position="0 0 0"></a-entity>
-      <a-entity id="student" gltf-model="https://raw.githubusercontent.com/bitoChan/schoolpressure/main/q1/3d-model/student/scene.gltf" position="1 0 0"></a-entity>
-      <a-image id="hint" src="3d-model/hints/hint1.png" position="2 1 0" width="1" height="1"></a-image>
+</head>
+
+<body>
+
+<!--Camera-->
+<a-entity camera look-controls="enabled: false" wasd-controls="enabled: false"></a-entity>
+<!--3D場景參數-->
+    <a-scene >
+<!--預加載3D模型-->
+    <a-assets>
+        <a-asset-item id="classroom"
+            src="https://raw.githubusercontent.com/bitoChan/schoolpressure/main/q1/3d-model/classroom/Classroom.gltf"></a-asset-item>
+        <a-asset-item id="student"
+            src="https://raw.githubusercontent.com/bitoChan/schoolpressure/main/q1/3d-model/student/scene.gltf"></a-asset-item>
+    </a-assets>
+<!--3D模型參數-->
+<a-entity>
+        <a-entity id="classroom"
+            gltf-model="https://raw.githubusercontent.com/bitoChan/schoolpressure/main/q1/3d-model/classroom/Classroom.gltf"
+            position="-7 0 -5" rotation="0 270 0"></a-entity>
+        <a-entity id="student"
+            gltf-model="https://raw.githubusercontent.com/bitoChan/schoolpressure/main/q1/3d-model/student/scene.gltf"
+            position="0 -2 -5" scale="1.1 1.3 1.1" animation-mixer="clip: mixamo.com; timeScale: 0.7"></a-entity>
+        <a-image id="hint" src="3d-model/hints/hint1.png" position="0 3 -4" scale="1.5 1 1" width="1" height="1"></a-image>
+</a-entity>
     </a-scene>
     <button id="myButton">錄音</button>
-  </body>
+</body>
+
 </html>
