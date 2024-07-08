@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>3D Classroom</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-entity id="classroom" gltf-model="https://raw.githubusercontent.com/bitoChan/schoolpressure/main/q1/3d-model/classroom/scene.gltf" position="0 0 0"></a-entity>
+      <a-entity id="student" gltf-model="https://raw.githubusercontent.com/bitoChan/schoolpressure/main/q1/3d-model/student/scene.gltf" position="1 0 0"></a-entity>
+      <a-image id="hint" src="hint1.png" position="2 1 0" width="1" height="1"></a-image>
+    </a-scene>
+    <button id="myButton">Start Recording</button>
+  </body>
+</html>
