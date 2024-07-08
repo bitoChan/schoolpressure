@@ -1,11 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     const button = document.querySelector('#myButton');
     const hintImage = document.querySelector('#hint');
-    
-    // Add click event to the button
+    let isRecording = false;
+    let recognizer;
+  
     button.addEventListener('click', function () {
-      button.style.backgroundColor = 'red';
-      startRecognition();
+      if (isRecording) {
+        stopRecognition();
+        button.style.backgroundColor = '';
+        button.textContent = '錄音';
+      } else {
+        startRecognition();
+        button.style.backgroundColor = 'red';
+        button.textContent = '停止錄音';
+      }
+      isRecording = !isRecording;
     });
   
     function startRecognition() {
@@ -13,32 +22,25 @@ document.addEventListener('DOMContentLoaded', function() {
       speechConfig.speechRecognitionLanguage = "zh-HK";
   
       const audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
-      const recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
+      recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
   
       recognizer.startContinuousRecognitionAsync();
-  
-      setTimeout(() => {
-        recognizer.stopContinuousRecognitionAsync(
-          () => { console.log("Recognition stopped."); },
-          err => { console.error("Error stopping recognition: ", err); }
-        );
-      }, 3000);
   
       recognizer.recognized = (s, e) => {
         if (e.result.reason === SpeechSDK.ResultReason.RecognizedSpeech) {
           const transcript = e.result.text;
           console.log(transcript);
-          
+  
           if (transcript.includes('唔開心')) {
-            hintImage.setAttribute('src', 'hint2.png');
+            hintImage.setAttribute('src', '3d-model/hints/hint2.png');
           } else if (transcript.includes('秘密')) {
-            hintImage.setAttribute('src', 'hint3.png');
-            playAudio('voice1.wav');
+            hintImage.setAttribute('src', '3d-model/hints/hint3.png');
+            playAudio('sound/voice1.wav');
           } else if (transcript.includes('放心')) {
-            hintImage.setAttribute('src', 'hint4.png');
+            hintImage.setAttribute('src', '3d-model/hints/hint4.png');
           } else if (transcript.includes('感受')) {
-            hintImage.setAttribute('src', 'hint5.png');
-            playAudio('voice2.wav');
+            hintImage.setAttribute('src', '3d-model/hints/hint5.png');
+            playAudio('sound/voice2.wav');
           } else if (transcript.includes('不如')) {
             window.location.href = 'q2.html';
           }
@@ -56,6 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Session stopped.");
         recognizer.stopContinuousRecognitionAsync();
       };
+    }
+  
+    function stopRecognition() {
+      if (recognizer) {
+        recognizer.stopContinuousRecognitionAsync();
+        recognizer = null;
+      }
     }
   
     function playAudio(fileName) {
