@@ -1,0 +1,14 @@
+﻿檔案名稱,純文字,SSML
+TEST-0001,"我想一個人，靜一下
+","<!--ID=B7267351-473F-409D-9765-754A8EBCDE05;Version=1|{""VoiceNameToIdMapItems"":[{""Id"":""d6db2ea7-2048-4c35-8733-ea7de8e8278d"",""Name"":""Microsoft Server Speech Text to Speech Voice (yue-CN, XiaoMinNeural)"",""ShortName"":""yue-CN-XiaoMinNeural"",""Locale"":""yue-CN"",""VoiceType"":""StandardVoice""}]}-->
+<!--ID=5B95B1CC-2C7B-494F-B746-CF22A0E779B7;Version=1|{""Locales"":{""zh-TW"":{""AutoApplyCustomLexiconFiles"":[{}]},""yue-CN"":{""AutoApplyCustomLexiconFiles"":[{}]}}}-->
+<speak version=""1.0"" xmlns=""http://www.w3.org/2001/10/synthesis"" xmlns:mstts=""http://www.w3.org/2001/mstts"" xmlns:emo=""http://www.w3.org/2009/10/emotionml"" xml:lang=""yue-CN""><voice name=""yue-CN-XiaoMinNeural"">我想一個人，靜一下
+</voice></speak>"
+TEST-0002,"其實，我今次測驗唔合格，唔敢翻屋企面對阿爸阿媽
+","<!--ID=B7267351-473F-409D-9765-754A8EBCDE05;Version=1|{""VoiceNameToIdMapItems"":[{""Id"":""d6db2ea7-2048-4c35-8733-ea7de8e8278d"",""Name"":""Microsoft Server Speech Text to Speech Voice (yue-CN, XiaoMinNeural)"",""ShortName"":""yue-CN-XiaoMinNeural"",""Locale"":""yue-CN"",""VoiceType"":""StandardVoice""}]}-->
+<!--ID=5B95B1CC-2C7B-494F-B746-CF22A0E779B7;Version=1|{""Locales"":{""zh-TW"":{""AutoApplyCustomLexiconFiles"":[{}]},""yue-CN"":{""AutoApplyCustomLexiconFiles"":[{}]}}}-->
+<speak version=""1.0"" xmlns=""http://www.w3.org/2001/10/synthesis"" xmlns:mstts=""http://www.w3.org/2001/mstts"" xmlns:emo=""http://www.w3.org/2009/10/emotionml"" xml:lang=""yue-CN""><voice name=""yue-CN-XiaoMinNeural"">其實，我今次測驗唔合格，唔敢翻屋企面對阿爸阿媽
+</voice></speak>"
+TEST-0003,"唔好理我，行開啦","<!--ID=B7267351-473F-409D-9765-754A8EBCDE05;Version=1|{""VoiceNameToIdMapItems"":[{""Id"":""d6db2ea7-2048-4c35-8733-ea7de8e8278d"",""Name"":""Microsoft Server Speech Text to Speech Voice (yue-CN, XiaoMinNeural)"",""ShortName"":""yue-CN-XiaoMinNeural"",""Locale"":""yue-CN"",""VoiceType"":""StandardVoice""}]}-->
+<!--ID=5B95B1CC-2C7B-494F-B746-CF22A0E779B7;Version=1|{""Locales"":{""zh-TW"":{""AutoApplyCustomLexiconFiles"":[{}]},""yue-CN"":{""AutoApplyCustomLexiconFiles"":[{}]}}}-->
+<speak version=""1.0"" xmlns=""http://www.w3.org/2001/10/synthesis"" xmlns:mstts=""http://www.w3.org/2001/mstts"" xmlns:emo=""http://www.w3.org/2009/10/emotionml"" xml:lang=""yue-CN""><voice name=""yue-CN-XiaoMinNeural"">唔好理我，行開啦</voice></speak>"
