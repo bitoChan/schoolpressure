@@ -69,10 +69,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function playAudio(fileName) {
-    const audio = new Audio(fileName);
+    const audio = document.getElementById('audioPlayer');
+    audio.src = fileName;
 
     // Safari-specific workaround to handle autoplay restrictions
-    audio.boolean = true; // 添加這行
+    audio.boolean = true; // 在播放前設置屬性為 true
 
     // 确保音频加载完成后再播放
     audio.addEventListener('canplaythrough', function() {
