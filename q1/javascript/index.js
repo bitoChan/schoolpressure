@@ -71,6 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
   function playAudio(fileName) {
     const audio = new Audio(fileName);
 
+    // Safari-specific workaround to handle autoplay restrictions
+    audio.boolean = true; // 添加這行
+
     // 确保音频加载完成后再播放
     audio.addEventListener('canplaythrough', function() {
         audio.play().catch(error => {
@@ -85,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('音频加载错误。请检查文件路径和格式。');
     });
 
-    // Safari-specific workaround to handle autoplay restrictions
     if (audio.readyState >= 2) {
         audio.play().catch(error => {
             console.error('播放失败:', error);
