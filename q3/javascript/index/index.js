@@ -1,56 +1,26 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var audio = new Audio('sound/Menubgm.mp3');
-    var playButton = document.querySelector('.home-soundplayer');
-    var isPlaying = false;
-  
-    document.querySelector('.home-button').addEventListener('click', function () {
-      audio.play();
-      this.style.display = 'none';
-    });
-  
-    var button1 = document.querySelector('.home-button1');
-    var button2 = document.querySelector('.home-button2');
-    var button3 = document.querySelector('.home-button3');
-  
-    button1.addEventListener('mouseover', function () {
-      button1.style.transform = 'scale(1.25)';
-    });
-    button1.addEventListener('mouseout', function () {
-      button1.style.transform = 'scale(1)';
-    });
-    button1.addEventListener('click', function () {
-      window.location.href = 'q1.html';
-    });
-  
-    button2.addEventListener('mouseover', function () {
-      button2.style.transform = 'scale(1.25)';
-    });
-    button2.addEventListener('mouseout', function () {
-      button2.style.transform = 'scale(1)';
-    });
-    button2.addEventListener('click', function () {
-      window.location.href = 'q2.html';
-    });
-  
-    button3.addEventListener('mouseover', function () {
-      button3.style.transform = 'scale(1.25)';
-    });
-    button3.addEventListener('mouseout', function () {
-      button3.style.transform = 'scale(1)';
-    });
-    button3.addEventListener('click', function () {
-      window.location.href = 'q3.html';
-    });
-  
-    playButton.addEventListener('click', function () {
-      if (isPlaying) {
-        audio.play();
-        playButton.src = 'media/menu/playbutton.png';
-      } else {
-        audio.pause();
-        playButton.src = 'media/menu/mutebutton.png';
-      }
-      isPlaying = !isPlaying;
-    });
-  });
-  
+function calculateScore() {
+    let score = 0;
+    const quizForm = document.forms['quizForm'];
+    for (let i = 1; i <= 15; i++) {
+        score += parseInt(quizForm[`question${i}`].value);
+    }
+
+    let resultText = "";
+    if (score >= 1 && score <= 15) {
+        resultText = "Your score is between 1 and 15.";
+    } else if (score >= 16 && score <= 30) {
+        resultText = "Your score is between 16 and 30.";
+    } else if (score >= 31 && score <= 45) {
+        resultText = "Your score is between 31 and 45.";
+    } else if (score >= 46 && score <= 60) {
+        resultText = "Your score is between 46 and 60.";
+    }
+
+    document.getElementById('result').innerText = resultText;
+
+    // 发送数据到 MySQL 数据库
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "save_score.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(`score=${score}`);
+}
