@@ -1,8 +1,8 @@
 <?php
-$servername = "18.162.152.78";  // 您的 MySQL 服务器 IP
-$username = "root";  // 您的 MySQL 用户名
-$password = "Medsim-1234";  // 您的 MySQL 密码
-$dbname = "SchoolPressure_Score";  // 您的 MySQL 数据库名
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "your_database_name";
 
 // 创建连接
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -12,8 +12,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// 获取POST数据
 $score = $_POST['score'];
-$sql = "INSERT INTO scores (score) VALUES ('$score')";
+$dateTime = $_POST['dateTime'];
+
+// 插入数据到数据库
+$sql = "INSERT INTO your_table_name (Score, DateTime) VALUES ('$score', '$dateTime')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
       button3.style.transform = 'scale(1)';
     });
     button3.addEventListener('click', function () {
-      window.location.href = 'q3/q3.html';
+      window.location.href = 'q3/index.html';
     });
   
     playButton.addEventListener('click', function () {

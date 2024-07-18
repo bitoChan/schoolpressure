@@ -18,9 +18,11 @@ function calculateScore() {
 
     document.getElementById('result').innerText = resultText;
 
+    const dateTime = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
     // 发送数据到 MySQL 数据库
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "save_score.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(`score=${score}`);
+    xhr.send(`score=${score}&dateTime=${dateTime}`);
 }
